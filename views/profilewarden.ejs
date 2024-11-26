@@ -1,0 +1,22 @@
+<% include ./partial/header %> 
+<% include ./partial/wardenfunction %>
+
+<div class="col-sm-6" style="flex: 0 0 50%; max-width: 50%; margin-left: auto; margin-right: auto; margin-top: 50px; border: 1px solid pink; text-align: center; padding: 20px; border-radius: 10px;">
+  <div class="thumbnail" style="text-align: center;">
+    <!-- Profile Image -->
+    <img style="height: 150px; width: 150px; border-radius: 100%; margin-bottom: 20px;" src="<%= warden.image %>" alt="Warden Image" />
+    
+    <!-- Profile Information -->
+    <h1><strong>Name:</strong> <%= warden.name %></h1>
+    <h4><strong>Type:</strong> <%= warden.type %></h4>
+    <h4><strong>Username:</strong> <%= warden.username %></h4>
+    <h4><strong>Hostel:</strong> <%= warden.hostel %></h4>
+  </div>
+
+  <!-- Edit Button -->
+  <a class="btn btn-warning" href="/warden/<%= warden._id %>/edit" style="margin-top: 20px; display: inline-block; padding: 10px 20px; text-align: center;">
+    Edit
+  </a>
+</div>
+
+<% include ./partial/footer %>

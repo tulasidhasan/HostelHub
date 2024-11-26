@@ -1,0 +1,26 @@
+<% include ./partial/header %>
+<% include ./partial/studfunction %>
+
+<div class="container" style="text-align: center; margin-top: 20px;">
+  <div class="col-sm-6 mx-auto" style="max-width: 50%;">
+    <h1 style="margin-bottom: 20px;">Apply for leave here, <%= student.name %></h1>
+    <form action="/student/<%= student._id %>/apply" method="POST" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+      <div class="form-group mb-3">
+        <input type="text" placeholder="Subject" name="leave[subject]" class="form-control" required />
+      </div>
+      <div class="form-group mb-3">
+        <label for="from">From:</label>
+        <input type="date" id="from" name="leave[from]" class="form-control" required />
+      </div>
+      <div class="form-group mb-3">
+        <label for="to">To:</label>
+        <input type="date" id="to" name="leave[to]" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<% include ./partial/footer %>

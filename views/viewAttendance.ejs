@@ -1,0 +1,23 @@
+<% include ./partial/header %>
+<h2 style="text-align: center; margin-top: 20px;">My Attendance</h2>
+
+<div class="container">
+  <table class="content-table" style="margin: 20px auto; width: 90%; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+    <thead>
+      <tr style="background-color: rgb(9, 1, 19); color: #ffffff; text-align: left; font-weight: bold;">
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% attendance.forEach(function(entry) { %>
+        <tr>
+          <td><%= entry.Date %></td>
+          <td><%= entry.Time %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<% include ./partial/footer %>

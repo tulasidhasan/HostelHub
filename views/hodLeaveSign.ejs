@@ -1,0 +1,39 @@
+<% include ./partial/header %>
+<% include ./partial/hodfunction %>
+
+<div class="col-sm-6" style="flex: 0 0 50%; max-width: 60%; margin: 0 auto; text-align: center;">
+  <table class="content-table" style="margin: 50px auto; min-width: 400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+    <thead>
+      <tr style="background-color: rgb(9, 1, 19); color: #ffffff; text-align: left; font-weight: bold;">
+        <th>Student Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Days</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(function(student) { %>
+        <% if(student.leaves.length > 0) { %>
+          <tr>
+            <td><%= student.name %></td>
+            <% student.leaves.forEach(function(leave) { %>
+              <td><%= moment(leave.from).format('DD/MM/YYYY') %></td>
+              <td><%= moment(leave.to).format('DD/MM/YYYY') %></td>
+              <td><%= leave.days %></td>
+              <td><%= leave.status %></td>
+              <td>
+                <% if(leave.status === "pending") { %>
+                  <a href="/hod/<%= hod.id %>/leave/<%= student.id %>/info" class="btn btn-success">More Info</a>
+                <% } %>
+              </td>
+            <% }) %>
+          </tr>
+        <% } %>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<% include ./partial/footer %>
